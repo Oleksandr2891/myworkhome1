@@ -256,20 +256,325 @@
 //      [0,1,0,1,0,1,0,1]
 //      [1,0,1,0,1,0,1,0]
 //  ]
- const render = (num) => {
-    const arr = [];
-     for (let i = 0; i < num; i++) {
-         arr[i] = [];
-         for (let j = 0; j < num; j++) {
-             if (!(i % 2)) {
-                 arr[i].push(j % 2);
-             }
-             else { 
-             arr[i].push(j % 2 === 0 ? 1 : 0)
-         }
-         }
-     }     return arr;
- }
+//  const render = (num) => {
+//     const arr = [];
+//      for (let i = 0; i < num; i++) {
+//          arr[i] = [];
+//          for (let j = 0; j < num; j++) {
+//              if (!(i % 2)) {
+//                  arr[i].push(j % 2);
+//              }
+//              else { 
+//              arr[i].push(j % 2 === 0 ? 1 : 0)
+//          }
+//          }
+//      }     return arr;
+//  }
 
- const res = render(6);
- console.log(res);
+//  const res = render(6);
+//  console.log(res);
+
+// #25/41
+
+// const forecast = {
+//   today: {
+//     low: 28,
+//     high: 32,
+//     icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+//   },
+//   tomorrow: {
+//     low: 27,
+//     high: 31,
+//   },
+// };
+// // Change code below this line
+
+// const { today: { low: lowToday, high: highToday, icon: todayIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg" },
+//      tomorrow: { low: lowTomorrow, high: highTomorrow, icon: tomorrowIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg" }, } = forecast;
+
+// // const { today,
+// //     tomorrow, } = forecast;
+
+// console.log(lowToday, highToday, todayIcon);
+
+
+// #26/41
+
+// // Change code below this line
+// function calculateMeanTemperature(forecast) {
+//   const {today: {low: todayLow, high: todayHigh,},
+//         tomorrow: {low: tomorrowLow, high: tomorrowHigh,},
+//         } = forecast;
+// //  const todayLow = forecast.today.low;
+// //  const todayHigh = forecast.today.high;
+// //  const tomorrowLow = forecast.tomorrow.low;
+// // const tomorrowHigh = forecast.tomorrow.high;
+
+//   // Change code above this line
+//   return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+// }
+
+// const forecast = {
+//   today: { low: 10, high: 20 },
+//   tomorrow: { low: 20, high: 30 }
+// };
+
+
+// #27/41
+
+// const scores = [89, 64, 42, 17, 93, 51, 26];
+// // Change code below this line
+// const bestScore = Math.max(...scores);
+// const worstScore = Math.min(...scores);
+
+
+// #28/41 
+
+// const firstGroupScores = [64, 42, 93];
+// const secondGroupScores = [89, 14, 51, 26];
+// const thirdGroupScores = [29, 47, 18, 97, 81];
+// // Change code below this line
+// const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+// const bestScore = Math.max(...allScores);
+// const worstScore = Math.min(...allScores);
+
+
+// console.log(allScores);
+
+// #30/41
+
+// function makeTask(data) {
+//   const completed = false;
+//   const category = 'General';
+//     const priority = 'Normal';
+//   // Change code below this line
+//     const defoultTask = { completed, category, priority };
+
+//     return { ...defoultTask, ...data };
+
+//   // Change code above this line
+// }
+
+// console.log(makeTask({ category: "Homemade", priority: "Low", text: "Take out the trash" }));
+// console.log(makeTask({}));
+// console.log(makeTask({ category: "Finance", text: "Take interest" }));
+// // console.log(makeTask({ priority: "Low", text: "Choose shampoo" }));
+
+
+// #31/41
+
+// function add(...args) {
+//   // Change code above this line
+    
+//     console.log(args);
+//   let result = 0;
+//     for (const value of args) {
+//         console.log(value);
+//         result += value;    
+//   };
+//   return result
+// }
+
+// console.log(add(74, 11, 62, 46, 12, 36));
+
+// #32/41
+
+// // Change code below this line
+// function addOverNum(firstNum, ...args) {
+//   let total = 0;
+
+//   for (const arg of args) {
+//     if (arg > firstNum) total += arg;
+//   }
+
+//   return total;
+//   // Change code above this line
+// }
+
+// addOverNum(20, 74, 11, 62, 46, 12, 36);
+
+
+// #33/41 
+
+// function findMatches(array, ...args) {
+//     const matches = []; // Don't change this line
+//     console.log(array);
+//     console.log(args);
+//     for (const value of args) {
+//     console.log(value);
+//         if (array.includes(value)) {
+//             matches.push(value);
+//         }
+        
+//     }
+//   // Change code above this line
+//   return matches;
+// }
+
+// console.log(findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2));
+
+// // возвращает [17, 89, 2]
+// //  [89, 17, 2]
+
+
+// #34/41
+
+// const bookShelf = {
+//   // Change code below this line
+//   books: ['The last kingdom', 'The guardian of dreams'],
+//   getBooks() {
+//     return 'Returning all books';
+//   },
+//   addBook(bookName) {
+//     return `Adding book ${bookName}`;
+//   },
+//   // Change code above this line
+//   removeBook(bookName) {
+//     return `Deleting book ${bookName}`;
+//   },
+//   updateBook(oldName, newName) {
+//   	return `Updating book ${oldName} to ${newName}`
+//   },
+// };
+
+// #35/41
+
+// const bookShelf = {
+//   books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+//   updateBook(oldName, newName) {
+//     // Change code below this line
+//       const library = this.books
+//       const indexDelBooks = library.indexOf(oldName);
+
+//      	 if (library.indexOf(oldName) > -1) {
+//               return library.splice(indexDelBooks, 1, newName)
+//             }
+//     // Change code above this line
+//   },
+// };
+
+// bookShelf.updateBook("Haze", "Dungeon chronicles");
+
+// console.log(bookShelf.books)
+
+// #36/41
+
+// const atTheOldToad = {
+//   // Change code below this line
+//   potions: [],
+//   // Change code above this line
+// };
+
+
+// #37/41 
+
+// const atTheOldToad = {
+//   // Change code below this line
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   // Change code above this line
+//     getPotions() {
+//       const value = this.potions
+//         // console.log(value);
+//         return value
+//   }, 
+// };
+
+// console.log(atTheOldToad.getPotions());
+// console.log(atTheOldToad.potions);
+
+
+// #38/41
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   addPotion(potionName) {
+//     // Change code below this line
+//       const value = this.potions;
+//     value.push(potionName);
+//     // Change code above this line
+//   },
+// };
+
+
+// #39/41
+
+// const atTheOldToad = {
+//   potions: ["Speed potion", "Dragon breath", "Stone skin"],
+//   removePotion(potionName) {
+//     // Change code below this line
+//     const value = this.potions;
+//        	 if (value.indexOf(potionName) > -1) {
+//             return value.splice(value.indexOf(potionName), 1)
+//            }
+//     // Change code above this line
+//   },
+// };
+
+// #40/41 
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   updatePotionName(oldName, newName) {
+//     // Change code below this line
+//       const value = this.potions;
+//       const indexValue = value.indexOf(oldName)
+//         	 if (indexValue > -1) {
+//              return value.splice(indexValue, 1, newName)
+//             }
+//     // Change code above this line
+//   },
+// };
+
+
+// #41/41
+
+// const atTheOldToad = {
+//   potions: [
+//     { name: 'Speed potion', price: 460 },
+//     { name: 'Dragon breath', price: 780 },
+//     { name: 'Stone skin', price: 520 },
+//   ],
+//   // Change code below this line
+//     getPotions() {
+//     return this.potions
+//   },
+//     addPotion(potionName) {
+//     if (this.potions.includes(potionName)) {
+//       return `Potion ${potionName} is already equipped!`;
+//     }
+
+//     this.potions.push(potionName);
+//   },
+//     removePotion(potionName) {
+//         const { potions } = this;
+//         for (let i = 0; i < potions.length; i += 1) {
+//             let { name } = potions[i];
+//             console.log(name);
+//             if (potionName === name) {
+//                 potions.splice(i, 1);
+//             }
+
+//         }
+//     return `Potion ${potionName} is not in inventory!`;    
+//   },
+//     updatePotionName(oldName, newName) {
+//         const { potions } = this;
+//         for (let i = 0; i < potions.length; i += 1) {
+//             let { name } = potions[i];
+
+//            if (oldName === name) {
+
+//                 potions[i].name = newName;
+//            }
+//         }
+//         return `Potion ${oldName} is not in inventory!`;
+//     }
+// //   Change code above this line
+// };
+
+// // atTheOldToad.getPotions();
+// // atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
+// atTheOldToad.removePotion("Dragon breath");
+// // atTheOldToad.updatePotionName("Dragon breath", "Polymorth");
+// console.log(atTheOldToad.potions);
+
