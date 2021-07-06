@@ -230,9 +230,10 @@
 
 //         for (let j = 0; j < newObt.length; j += 1) {
 //             if (newObt[j] === productName) {
-//                 totalPrice = newObt[j+1] * newObt[j+2]
+//                 totalPrice = newObt[j+1] * newObt[j+2];
+//     //            totalPrice = newObt[price] * newObt[quantity];
 //                 // console.log(newObt[j]);
-//                 console.log(totalPrice);
+//                 // console.log(totalPrice);
 //             }
 //           console.log(totalPrice);
 //         }
@@ -528,53 +529,92 @@
 
 // #41/41
 
-// const atTheOldToad = {
-//   potions: [
-//     { name: 'Speed potion', price: 460 },
-//     { name: 'Dragon breath', price: 780 },
-//     { name: 'Stone skin', price: 520 },
-//   ],
-//   // Change code below this line
-//     getPotions() {
-//     return this.potions
-//   },
-//     addPotion(potionName) {
-//     if (this.potions.includes(potionName)) {
-//       return `Potion ${potionName} is already equipped!`;
-//     }
+const atTheOldToad = {
+  potions: [
+    { name: 'Speed potion', price: 460 },
+    { name: 'Dragon breath', price: 780 },
+    { name: 'Stone skin', price: 520 },
+  ],
+  // Change code below this line
+    getPotions() {
+    return this.potions
+  },  
+    addPotion(potionName) {
+    if (this.potions.includes(potionName)) {
+      return `Potion ${potionName} is already equipped!`;
+    }
 
-//     this.potions.push(potionName);
-//   },
-//     removePotion(potionName) {
-//         const { potions } = this;
-//         for (let i = 0; i < potions.length; i += 1) {
-//             let { name } = potions[i];
-//             console.log(name);
-//             if (potionName === name) {
-//                 potions.splice(i, 1);
-//             }
+    this.potions.push(potionName);
+  },
+    removePotion(potionName) {
+        const { potions } = this;
+        for (let i = 0; i < potions.length; i += 1) {
+            let { name } = potions[i];
+            console.log(name);
+            if (potionName === name) {
+                potions.splice(i, 1);
+            }
 
-//         }
-//     return `Potion ${potionName} is not in inventory!`;    
-//   },
-//     updatePotionName(oldName, newName) {
-//         const { potions } = this;
-//         for (let i = 0; i < potions.length; i += 1) {
-//             let { name } = potions[i];
+        }
+    return `Potion ${potionName} is not in inventory!`;    
+  },
+    updatePotionName(oldName, newName) {
+        const { potions } = this;
+        for (let i = 0; i < potions.length; i += 1) {
+            let { name } = potions[i];
 
-//            if (oldName === name) {
+           if (oldName === name) {
 
-//                 potions[i].name = newName;
-//            }
-//         }
-//         return `Potion ${oldName} is not in inventory!`;
-//     }
-// //   Change code above this line
-// };
+                potions[i].name = newName;
+           }
+        }
+        return `Potion ${oldName} is not in inventory!`;
+    }
+//   Change code above this line
+};
 
-// // atTheOldToad.getPotions();
-// // atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
-// atTheOldToad.removePotion("Dragon breath");
-// // atTheOldToad.updatePotionName("Dragon breath", "Polymorth");
-// console.log(atTheOldToad.potions);
+// atTheOldToad.getPotions();
+// atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
+atTheOldToad.removePotion("Dragon breath");
+// atTheOldToad.updatePotionName("Dragon breath", "Polymorth");
+console.log(atTheOldToad.potions);
 
+
+
+
+/*ЗАДАНИЕ ОТ БОГДАНА
+
+Напишите объект "Кредитная карта", который имеет свойства:
+- правильный pin code;
+- количество попыток ввода пин-кода, которые остались;
+- количество денег на счету;
+- кредитный лимит;
+- статус (активна или заблокирована).
+И методы:
+- снять деньги. Получает введный пользователем пин код и желаемую сумму.
+Проверяет, заблокирована ли карта.
+Если да - возвращает сообщение "Карта заблокирована,
+обратитесь в банк". Если нет - сверяет пин-код с правильным.
+Если все ок - проверяет хватит ли денег с учетом лимита.
+Если все ок - возвращет сумму и уменьшает деньги на счету
+с учетом лимита.
+Если сумма слишком большая - возвращает строку "Средств недосточно".
+Если пин-код неправильный - уменьшает количество
+попыток ввода на 1 и если их осталось 0 - меняет статус на "заблокирована"
+
+
+const creditCard = {
+    password: 0000,
+    countBedPassword: 3,
+    amount: 50000,
+    creditLim:0,
+    status: true.
+
+    getAmountMney (sumUser) {
+    const totalAmount = this.amount + this.creditLim
+      if (totalAmount >= sumUser){
+            totalAmount -= sumUser
+      };
+    };
+};
+*/

@@ -41,7 +41,7 @@
 //    const masArray=[];
 //    masArray[0] = array[0];
 //    masArray[1] = array[array.length-1];
-//     // return masArray;
+//    return masArray;
 
 //     console.log(masArray);
 
