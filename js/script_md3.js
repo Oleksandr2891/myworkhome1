@@ -33,7 +33,7 @@
 // console.log(apartment);
 
 
-// #10/41
+// // #10/41
 // const apartment = {
 //   descr: "Spacious apartment in the city center",
 //   rating: 4,
@@ -46,16 +46,16 @@
 // for (const item in apartment) {
 //     // console.log(item);
     
-// //   for (let i=0; i < keys.length; i++){
+
 //     keys.push(item);
 
 //     values.push(apartment[item])
 
-// }
+
   
 // console.log(keys);
 // console.log(values);
-// };
+// // };
 
 // Change code below this line
 
@@ -529,57 +529,90 @@
 
 // #41/41
 
-const atTheOldToad = {
-  potions: [
-    { name: 'Speed potion', price: 460 },
-    { name: 'Dragon breath', price: 780 },
-    { name: 'Stone skin', price: 520 },
-  ],
-  // Change code below this line
-    getPotions() {
-    return this.potions
-  },  
-    addPotion(potionName) {
-    if (this.potions.includes(potionName)) {
-      return `Potion ${potionName} is already equipped!`;
-    }
+// const atTheOldToad = {
+//   potions: [
+//     { name: 'Speed potion', price: 460 },
+//     { name: 'Dragon breath', price: 780 },
+//     { name: 'Stone skin', price: 520 },
+//   ],
+//   // Change code below this line
+//     getPotions() {
+//     return this.potions
+//   },  
+//     addPotion(potionName) {
+//     if (this.potions.includes(potionName)) {
+//       return `Potion ${potionName} is already equipped!`;
+//     }
 
-    this.potions.push(potionName);
-  },
-    removePotion(potionName) {
-        const { potions } = this;
-        for (let i = 0; i < potions.length; i += 1) {
-            let { name } = potions[i];
-            console.log(name);
-            if (potionName === name) {
-                potions.splice(i, 1);
-            }
+//     this.potions.push(potionName);
+//   },
+//     removePotion(potionName) {
+//         const { potions } = this;
+//         for (let i = 0; i < potions.length; i += 1) {
+//             let { name } = potions[i];
+//             console.log(name);
+//             if (potionName === name) {
+//                 potions.splice(i, 1);
+//             }                                
 
-        }
-    return `Potion ${potionName} is not in inventory!`;    
-  },
-    updatePotionName(oldName, newName) {
-        const { potions } = this;
-        for (let i = 0; i < potions.length; i += 1) {
-            let { name } = potions[i];
+//         }
+//     return `Potion ${potionName} is not in inventory!`;    
+//   },
+//     updatePotionName(oldName, newName) {
+//         const { potions } = this;
+//         for (let i = 0; i < potions.length; i += 1) {
+//             let { name } = potions[i];
 
-           if (oldName === name) {
+//            if (oldName === name) {
 
-                potions[i].name = newName;
-           }
-        }
-        return `Potion ${oldName} is not in inventory!`;
-    }
-//   Change code above this line
-};
+//                 potions[i].name = newName;
+//            }
+//         }
+//         return `Potion ${oldName} is not in inventory!`;
+//     }
+// //   Change code above this line
+// };
 
-// atTheOldToad.getPotions();
-// atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
-atTheOldToad.removePotion("Dragon breath");
-// atTheOldToad.updatePotionName("Dragon breath", "Polymorth");
-console.log(atTheOldToad.potions);
+// // atTheOldToad.getPotions();
+// // atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
+// atTheOldToad.removePotion("Dragon breath");
+// // atTheOldToad.updatePotionName("Dragon breath", "Polymorth");
+// console.log(atTheOldToad.potions);
 
 
+// решение от Влада.
+// const atTheOldToad = {
+//   potions: [
+//     { name: 'Speed potion', price: 460 },
+//     { name: 'Dragon breath', price: 780 },
+//     { name: 'Stone skin', price: 520 },
+//   ],
+//   // Change code below this line
+//   getPotions() {
+//     return this.potions;
+//   },
+//   addPotion(potionName) {
+//     this.potions.push(potionName);
+//   },
+//   removePotion(potionName) {
+//     let searchPotion;
+// for (const potion of this.potions){
+// if (potion.name === potionName) {
+//   searchPotion = potion;
+//     }
+//     } this.potions.splice(this.potions.indexOf(searchPotion),1);
+//   },
+//   updatePotionName(oldName, newName) {
+//     let searchPotion;
+//     for (const potion of this.potions){
+// if (potion.name === oldName) {
+//   searchPotion = potion
+//     };
+//     };
+//   searchPotion.name = newName;
+//   },
+//   // Change code above this line
+// };
 
 
 /*ЗАДАНИЕ ОТ БОГДАНА

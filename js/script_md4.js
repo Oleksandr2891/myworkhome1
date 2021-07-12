@@ -60,28 +60,100 @@
 // pizzaPalace.order('Биг майк', makePizza, onOrderError);
 // pizzaPalace.order('Венская', makePizza, onOrderError);
 
-//#7/10 
-const orders = [
-  { email: 'solomon@topmail.ua', dish: 'Burger' },
-  { email: 'artemis@coldmail.net', dish: 'Pizza' },
-  { email: 'jacob@mail.com', dish: 'Taco' },
-];
+// //#7/10 
+// const orders = [
+//   { email: 'solomon@topmail.ua', dish: 'Burger' },
+//   { email: 'artemis@coldmail.net', dish: 'Pizza' },
+//   { email: 'jacob@mail.com', dish: 'Taco' },
+// ];
+
+// // // Пиши код ниже этой строки
+// function composeMessage(position) {
+//     const makeMassages = `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`
+//         return makeMassages
+// };
+
+// const messages = [];
+
+// for (let i = 0; i < orders.length; i++) {
+
+//   messages.push(composeMessage.call( orders[i], i+1));
+
+//  }
+// console.log(messages);
+
+//  composeMessage(2);
+
+// #8/10
+
+// const orders = [
+//   { email: "solomon@topmail.ua", dish: "Burger" },
+//   { email: "artemis@coldmail.net", dish: "Pizza" },
+//   { email: "jacob@mail.com", dish: "Taco" },
+// ];
 
 // // Пиши код ниже этой строки
 // function composeMessage(position) {
-//     // console.log(orders[position]);
-//     if (!orders[position]) {
-//         return messages[position]
-        
-//     }
-// // }
-// console.log(orders[position].dish);
-// const messages = [];
-for (let i; i < orders.length; i++) {
-    const makeMassages = `Готовим ${orders[position].dish} для ${orders[position].email}. Ваш заказ ${position}-й в очереди.`;
-    // console.log(makeMassages);
-    messages.push(i);
- }
-console.log(messages);
+//   return `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`;
+// }
 
-//  composeMessage(2);
+// const messages = [];
+// for (let i = 0; i < orders.length; i++) {
+//   const msg = composeMessage.apply(orders[i], [i + 1]);
+//   messages.push(msg);
+// }
+
+// #9/10
+
+
+// const burgerShack = {
+//   company: 'Burger Shack',
+// };
+
+// function composeMessage(customerName) {
+//   return `${customerName}, всегда рады вас видеть в «${this.company}».`;
+// }
+// // Пиши код ниже этой строки
+
+// const pizzaPalaceComposer = composeMessage.bind(pizzaPalace);
+// const pizzaPalaceMessage = pizzaPalaceComposer('Манго');
+
+// const burgerShackComposer = composeMessage.bind(burgerShack );
+// const burgerShackMessage = burgerShackComposer('Поли');
+
+
+// #10/10
+
+const service = {
+  mailingList: ['mango@mail.com', 'poly@hotmail.de', 'ajax@jmail.net'],
+  subscribe(email) {
+    this.mailingList.push(email);
+    return `Почта ${email} добавлена в рассылку.`;
+  },
+  unsubscribe(email) {
+    this.mailingList = this.mailingList.filter((e) => e !== email);
+    return `Почта ${email} удалена из рассылки.`;
+  },
+};
+
+function logAndInvokeAction(email, action) {
+  console.log(`Выполняем действие с ${email}.`);
+  return action(email);
+}
+
+const firstInvoke = logAndInvokeAction('kiwi@mail.uk', service.subscribe.bind(service));
+console.log(firstInvoke);
+// Почта kiwi@mail.uk добавлена в рассылку.
+
+console.log(service.mailingList);
+/* ['mango@mail.com', 
+    'poly@hotmail.de', 
+    'ajax@jmail.net', 
+    'kiwi@mail.uk']*/
+const secondInvoke = logAndInvokeAction('poly@hotmail.de', service.unsubscribe.bind(service));
+console.log(secondInvoke);
+// Почта poly@hotmail.de удалена из рассылки.
+
+// console.log(service.mailingList); // ['mango@mail.com', 'ajax@jmail.net', 'kiwi@mail.uk']
+
+
