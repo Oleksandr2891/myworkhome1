@@ -298,16 +298,7 @@
 // console.log(getUsersWithAge(base, 20, 30));
 
 
-// #20/44
-
-// const getFriends = (users) => {
-//   const arrFriends = [];
-//   users.forEach((num) => arrFriends.push(...num.friends));
-//   const unicFriends = [...arrFriends].filter((friend, ind, arr) => arr.indexOf(friend) === ind);
-//   return unicFriends
-
- 
-// }
+// // #20/44                                                                                     
 // // console.log(baseNew);
 //     // users.map(({ friends }) => friend);
 //     // users.filter((user) => user.friends.includes()
@@ -607,3 +598,124 @@
 // };
 
 // console.log(getTotalBalanceByGender (base, 'male'));
+
+
+// ___________________________________________________________________________
+//  Скрипт для цветов в консоли - интересный вариант
+
+​
+​
+/*========================================*/
+​
+//console.log('%c1%c2%c3%c4%c5', 'background-color: red; padding: 15px;');
+​
+class Palette {
+    static invertColor(color) {
+        return color.map(item => 255 - item);
+    }
+​
+    static rgbToHex(color) {
+        const hex = color.reduce((acc, item) => acc + item.toString(16), '#');
+        return hex;
+    }
+​
+    static hexToRgb(hexColor) {
+        return hexColor.slice(1).split('').reduce((acc, item, index) => {
+            if (!(index % 2)) acc.push(item);
+            else acc[acc.length - 1] += item;
+​
+            return acc;
+        }, []).map(item => parseInt(item, 16));
+    }
+​
+    constructor() {
+        this.reprint();
+    }
+​
+    #colors = [
+        [255, 0, 0],
+        [0, 255, 0],
+        [0, 0, 255],
+        [0, 0, 0],
+        [255, 255, 255]
+    ];
+​
+    reprint() {
+        const pattern = this.#colors.reduce((acc, item, index) => acc + `%c${index + 1}`, '');
+        const styles = this.#colors.map(item => `background-color: rgb(${item}); font-size:20px; padding: 20px; color: rgb(${Palette.invertColor(item)})`);
+        console.clear();
+        console.log(pattern, ...styles);
+    }
+​
+    getColorById(id) {
+        return this.#colors[id - 1];
+    }
+​
+    addColor(color) {
+        if (color.every(item => item >= 0 && item <= 255))
+            this.#colors.push(color);
+​
+        this.reprint();
+    }
+​
+    invertById(id, isAdd = false) {
+        const color = this.getColorById(id);
+        const newColor = color.map(item => 255 - item);
+​
+        if (isAdd) this.addColor(newColor);
+​
+        return newColor;
+    }
+​
+    remove(id) {
+        if (id < 5) return false;
+​
+        this.#colors.splice(id - 1, 1);
+​
+        this.reprint();
+    }
+​
+    mix(...ids) {
+        const colors = ids.map(id => this.getColorById(id));
+​
+        const newColor = colors.reduce((acc, item) => {
+            acc[0] += item[0];
+            acc[1] += item[1];
+            acc[2] += item[2];
+​
+            return acc;
+        }, [0, 0, 0]).map(item => parseInt(item / colors.length));
+​
+        this.addColor(newColor);
+    }
+​
+    updateColorById(id, mixId) {
+        if (id < 5) return false;
+​
+        const color = this.getColorById(id);
+        const mixColor = this.getColorById(mixId);
+​
+        [color, mixColor].reduce((acc, item) => {
+            acc[0] += item[0];
+            acc[1] += item[1];
+            acc[2] += item[2];
+​
+            return acc;
+        }, [0, 0, 0])
+            .map(item => parseInt(item / 2))
+            .forEach((item, index) => color[index] = item);
+​
+        this.reprint();
+    }
+​
+}
+​
+const palette = new Palette();
+​
+palette.invertById(2, true);
+​
+palette.mix(1, 4, 4, 4, 5);
+​
+palette.remove(7);
+​
+palette.updateColorById(6, 5);
